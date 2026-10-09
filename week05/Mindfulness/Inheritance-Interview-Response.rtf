@@ -1,0 +1,31 @@
+{\rtf1\ansi\deff0
+{\fonttbl{\f0 Calibri;}{\f1 Consolas;}}
+{\colortbl;\red31\green78\blue121;\red90\green90\blue90;\red242\green244\blue247;}
+\viewkind4\uc1
+\paperw12240\paperh15840\margl1080\margr1080\margt1080\margb1080
+\pard\qc\f0\fs36\b\cf1 Inheritance and Why It Matters\b0\cf0\par
+\pard\qc\f0\fs22\cf2 CSE 210 Mindfulness Program | Interview response\cf0\par
+\pard\sa180\par
+\pard\f0\fs28\b\cf1 Interview response\b0\cf0\par
+\pard\sa180\f0\fs22 Inheritance is an object-oriented programming principle that lets a new class (the derived or child class) build on an existing class (the base or parent class). The derived class receives the base class's accessible behavior and can add its own specialized behavior. This models an "is-a" relationship: a BreathingActivity is an Activity.\par
+\pard\sa180\f0\fs22 A key benefit is reuse with consistency. Shared state and behavior can be implemented once in the base class instead of copied into every activity. In this program, Activity holds the common name, description, and duration, and provides shared starting and ending messages plus spinner and countdown animations. If the common starting message needs to change, changing the base implementation updates the activities that use it. This reduces duplication and makes the program easier to maintain.\par
+\pard\sa180\f0\fs22 Inheritance is useful whenever several kinds of objects share a common foundation but need distinct behavior. For example, a notification system could have a base Notification for shared recipient and delivery behavior, with EmailNotification and TextNotification subclasses that implement their own sending details. In my Mindfulness program, BreathingActivity inherits the shared activity behavior and specializes it with paced breathing.\par
+\pard\sa120\f0\fs28\b\cf1 Code example from BreathingActivity.cs\b0\cf0\par
+\pard\li360\sa0\cb3\f1\fs18 public class BreathingActivity : Activity\par
+\pard\li360\sa0\cb3\f1\fs18 \{\par
+\pard\li360\sa0\cb3\f1\fs18     public BreathingActivity()\par
+\pard\li360\sa0\cb3\f1\fs18         : base(\par
+\pard\li360\sa0\cb3\f1\fs18               "Breathing",\par
+\pard\li360\sa0\cb3\f1\fs18               "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.")\par
+\pard\li360\sa0\cb3\f1\fs18     \{\par
+\pard\li360\sa0\cb3\f1\fs18     \}\par
+\pard\li360\sa0\cb3\f1\fs18\par
+\pard\li360\sa0\cb3\f1\fs18     public void Run()\par
+\pard\li360\sa0\cb3\f1\fs18     \{\par
+\pard\li360\sa0\cb3\f1\fs18         DisplayStartingMessage();\par
+\pard\li360\sa0\cb3\f1\fs18         DateTime endTime = DateTime.Now.AddSeconds(GetDuration());\par
+\pard\li360\sa0\cb3\f1\fs18     \}\par
+\pard\li360\sa180\cb3\f1\fs18 \}\par
+\pard\sa180\f0\fs22 The declaration ": Activity" establishes that BreathingActivity derives from Activity. The ": base(...)" constructor call passes this activity's name and description to the base-class constructor, which initializes shared data. Run() is the specialized breathing workflow, while DisplayStartingMessage() and GetDuration() are reused from Activity. The other activity classes follow the same inheritance pattern.\par
+\pard\sa180\f0\fs22 Screenshot attachment: Inheritance-Code-Screenshot.png shows the corresponding code excerpt from BreathingActivity.cs.\par
+}
