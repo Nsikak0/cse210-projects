@@ -1,9 +1,9 @@
 public class Address
 {
-    private string _streetAddress;
-    private string _city;
-    private string _stateProvince;
-    private string _country;
+    private readonly string _streetAddress;
+    private readonly string _city;
+    private readonly string _stateProvince;
+    private readonly string _country;
 
     public Address(string streetAddress, string city, string stateProvince, string country)
     {
@@ -15,7 +15,7 @@ public class Address
 
     public bool IsInUSA()
     {
-        return _country.ToUpper() == "USA";
+        return string.Equals(_country, "USA", System.StringComparison.OrdinalIgnoreCase);
     }
 
     public string GetFullAddress()

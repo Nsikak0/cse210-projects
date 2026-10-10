@@ -1,9 +1,9 @@
 public class Customer
 {
-    private string _name;
-    private Address _address;
+    private readonly string _name;
+    private readonly Address _address;
 
-    public Customer (string name, Address address)
+    public Customer(string name, Address address)
     {
         _name = name;
         _address = address;

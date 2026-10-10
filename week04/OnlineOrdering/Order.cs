@@ -3,8 +3,8 @@ using System.Text;
 
 public class Order
 {
-    private List<Product> _products;
-    private Customer _customer;
+    private readonly List<Product> _products;
+    private readonly Customer _customer;
 
     public Order (Customer customer)
     {
@@ -17,15 +17,15 @@ public class Order
         _products.Add(product);
     }
 
-    public double CalculateTotalCost()
+    public decimal CalculateTotalCost()
     {
-        double totalCost = 0;
+        decimal totalCost = 0;
         foreach (Product product in _products)
         {
             totalCost += product.GetTotalCost();
         }
 
-        totalCost += _customer.LivesInUSA() ? 5 : 35;
+        totalCost += _customer.LivesInUSA() ? 5m : 35m;
 
         return totalCost;
     }

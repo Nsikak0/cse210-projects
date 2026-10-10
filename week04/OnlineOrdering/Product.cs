@@ -1,11 +1,11 @@
 public class Product
 {
-    private string _name;
-    private string _productId;
-    private double _price;
-    private int _quantity;
+    private readonly string _name;
+    private readonly string _productId;
+    private readonly decimal _price;
+    private readonly int _quantity;
 
-    public Product (string name, string productId, double price, int quantity)
+    public Product(string name, string productId, decimal price, int quantity)
     {
         _name = name;
         _productId = productId;
@@ -23,7 +23,7 @@ public class Product
         return _productId;
     }
 
-    public double GetTotalCost()
+    public decimal GetTotalCost()
     {
         return _price * _quantity;
     }
